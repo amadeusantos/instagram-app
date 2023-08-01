@@ -5,16 +5,6 @@ import Button from "../button";
 import { useState } from "react";
 import { styles } from "./style";
 
-interface PostProps {
-  imagePerfil: string;
-  name: string;
-  imagePost: string;
-  comment: string;
-  imageLike: string;
-  infoLike: string;
-  location?: string;
-}
-
 export default function Post({
   imagePerfil,
   imagePost,
