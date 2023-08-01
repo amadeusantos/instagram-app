@@ -3,6 +3,7 @@ import Perfil from "../perfil";
 import { Ionicons } from "@expo/vector-icons";
 import Button from "../button";
 import { useState } from "react";
+import { styles } from "./style";
 
 interface PostProps {
   imagePerfil: string;
@@ -31,24 +32,19 @@ export default function Post({
   }
 
   return (
-    <View style={{ alignItems: "center", justifyContent: "center" }}>
+    <View style={styles.container}>
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "flex-start",
-          justifyContent: "space-between",
-          width: "100%",
-        }}
+        style={styles.body}
       >
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View style={styles.top}>
           <Button>
             <Perfil image={imagePerfil} size={32} />
           </Button>
-          <View style={{ alignItems: "center", justifyContent: "flex-start"}}>
+          <View style={styles.name}>
           <Button>
-            <Text style={{ fontWeight: "500", fontSize: 16 }}>{name}</Text>
+            <Text style={styles.nameText}>{name}</Text>
           </Button>
-          {location?<Button><Text style={{ fontSize: 10, marginTop: -10, marginLeft: -10 }}>{location}</Text></Button>: ""}
+          {location?<Button><Text style={styles.location}>{location}</Text></Button>: ""}
         </View>
         </View>
         <Button>
@@ -57,18 +53,12 @@ export default function Post({
       </View>
       <Image
         source={{ uri: imagePost }}
-        style={{ width: "100%", height: 400, borderRadius: 4 }}
+        style={styles.imagePost}
       />
       <View
-        style={{
-          width: "100%",
-          flexDirection: "row",
-          paddingHorizontal: 6,
-          paddingTop: 2,
-          justifyContent: "space-between",
-        }}
+        style={styles.bottom}
       >
-        <View style={{ flexDirection: "row" }}>
+        <View style={styles.actions}>
           <Button action={clickLike}>
             {like? <Ionicons name="heart" size={32} color="red" /> : <Ionicons name="heart-outline" size={32} color="black" />}
           </Button>
@@ -86,15 +76,15 @@ export default function Post({
       </View>
       <View style={{ width: "100%", paddingHorizontal: 10 }}>
         <Button>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View style={styles.infos}>
             <Perfil image={imageLike} size={16} />
-            <Text style={{ marginLeft: 4 }}>
-              Liked by <Text style={{ fontWeight: "bold" }}>{infoLike}</Text>{" "}
-              and<Text style={{ fontWeight: "bold" }}> others</Text>
+            <Text style={styles.marginLeft4}>
+              Liked by <Text style={styles.bold}>{infoLike}</Text>{" "}
+              and<Text style={styles.body}> others</Text>
             </Text>
           </View>
         </Button>
-        <Text style={{ marginLeft: 4 }}>{comment}</Text>
+        <Text style={styles.marginLeft4}>{comment}</Text>
       </View>
     </View>
   );
