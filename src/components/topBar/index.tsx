@@ -1,32 +1,22 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 import Button from "../button";
+import { styles } from "./style";
 
 export default function TopBar() {
   return (
     <View
-      style={{
-        width: "100%",
-        height: 64,
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
+      style={styles.container}
     >
       <Button>
         <Ionicons name="camera-outline" size={32} color="black" />
       </Button>
       <Text
-        style={{
-          fontSize: 20,
-          justifyContent: "center",
-          marginLeft: 40,
-          fontWeight: "bold",
-        }}
+        style={styles.logo}
       >
         Instagram
       </Text>
-      <View style={{ flexDirection: "row" }}>
+      <View style={styles.row}>
         <Button>
           <Ionicons name="tv-outline" size={32} color="black" />
         </Button>
