@@ -4,11 +4,6 @@ import Perfil from "../perfil";
 import Button from "../button";
 import { styles } from "./style";
 
-interface StoryProps {
-    image: string;
-    name: string;
-}
-
 export default function Story({ image, name }: StoryProps) {
     return (
       <Button>
